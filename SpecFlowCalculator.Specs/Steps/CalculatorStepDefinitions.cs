@@ -1,5 +1,6 @@
 ﻿using TechTalk.SpecFlow;
 using FluentAssertions;
+using System.Collections.Generic;
 
 namespace SpecFlowCalculator.Specs.Steps
 {
@@ -45,26 +46,49 @@ namespace SpecFlowCalculator.Specs.Steps
         public void WhenTheTwoNumbersAreAdded()
         {
             _result = _calculator.Add();
+            _calculator.Operands = new List<int>();
+            int value = 0;
+            if (int.TryParse(_result, out value))
+            {
+                _calculator.Operands.Add(value);
+            }
         }
 
         [When("the two numbers are subtracted")]
         public void WhenTheTwoNumberAreSubtracted()
         {
             _result = _calculator.Sub();
+            _calculator.Operands = new List<int>();
+            int value = 0;
+            if (int.TryParse(_result, out value))
+            {
+                _calculator.Operands.Add(value);
+            }
         }
 
         [When(@"the two numbers are multiplied")]
         public void WhenTheTwoNumbersAreMultiplied()
         {
             _result = _calculator.Multi();
+            _calculator.Operands = new List<int>();
+            int value = 0;
+            if(int.TryParse(_result, out value))
+            {
+                _calculator.Operands.Add(value);
+            }           
         }
 
         [When(@"the two numbers are divided")]
         public void WhenTheTwoNumbersAreDivided()
         {
             _result = _calculator.Div();
+            _calculator.Operands = new List<int>();
+            int value = 0;
+            if (int.TryParse(_result, out value))
+            {
+                _calculator.Operands.Add(value);
+            }
         }
-
 
         [Then("the result should be (.*)")]
         public void ThenTheResultShouldBe(string result)

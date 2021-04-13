@@ -52,3 +52,13 @@ Scenario: Multiply N numbers
 		| 120 | 2  |   |    |   | 240      |
 		| 2   | 4  | 5 | 10 |   | 400      |
 		| 120 | -6 | 6 | 71 | 4 | -1226880 |
+
+@mix operation
+Scenario: Multi operation
+	Given add operand 10
+	And  add operand 2
+	When the two numbers are multiplied
+	Given add operand 2
+	And add operand 5
+	When the two numbers are added
+	Then the result should be 27

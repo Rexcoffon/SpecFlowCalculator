@@ -11,20 +11,29 @@ namespace SpecFlowCalculator
             Operands = new List<int>();
         }
 
-        //public int FirstNumber { get; set; }
-        //public int SecondNumber { get; set; }
         public List<int> Operands { get; set; }
 
         public string Add()
         {
-            //return (FirstNumber + SecondNumber).ToString();
 
-            return Operands.Sum(item => item).ToString();
+            int? result = null;
+            foreach (var item in Operands)
+            {
+                if (result.HasValue)
+                {
+                    result += item;
+                }
+                else
+                {
+                    result = item;
+                }
+            }
+
+            return result.ToString();
         }
 
         public string Sub()
         {
-            //return (FirstNumber - SecondNumber).ToString();
             int? result = null;
             foreach (var item in Operands)
             {
@@ -43,7 +52,6 @@ namespace SpecFlowCalculator
 
         public string Multi()
         {
-            //return (FirstNumber * SecondNumber).ToString();result
             int? result = null;
             foreach (var item in Operands)
             {
